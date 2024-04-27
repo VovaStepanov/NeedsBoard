@@ -29,7 +29,7 @@ const formSchema = z
         email: z
             .string()
             .email({ message: "Invalid email address" })
-            .min(1, { message: "required_error" }),
+            .min(1, { message: "Invalid email address" }),
         password: z.string().min(6, "Password is too short"),
         confirmpassword: z.string().min(6, "Password is too short"),
     })
@@ -38,7 +38,11 @@ const formSchema = z
         path: ["confirmpassword"],
     });
 
-export const RegisterForm = () => {
+interface RegisterFormPropsType {
+    onSubmit: (values: z.infer<typeof formSchema>) => void;
+}
+
+export const RegisterForm: React.FC<RegisterFormPropsType> = ({ onSubmit }) => {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -51,9 +55,6 @@ export const RegisterForm = () => {
         },
     });
 
-    const onSubmit = (values: z.infer<typeof formSchema>) => {
-        console.log("Form submitted");
-    };
     return (
         <Form {...form}>
             <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
