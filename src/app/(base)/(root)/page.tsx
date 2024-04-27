@@ -7,9 +7,12 @@ import { Button } from "@/components/ui/button";
 import { globeConfig, sampleArcs } from "@/utils/config/homeGlobeConfig";
 import Link from "next/link";
 
-const World = dynamic(() => import("./_components").then((m) => m.World), {
-    ssr: false,
-});
+const World = dynamic(
+    () => import("./_components/Globe/Globe").then((m) => m.World),
+    {
+        ssr: false,
+    },
+);
 
 export default function Home() {
     return (
@@ -17,20 +20,18 @@ export default function Home() {
             <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start">
                 <div className="translate-y-[-20%]">
                     <TypewriterEffectSmooth
-                        words={
-                            [
-                                {
-                                    text: "Share",
-                                },
-                                {
-                                    text: "your",
-                                },
-                                {
-                                    text: "help",
-                                    className: "text-blue-500 dark:text-blue-500",
-                                },
-                            ]
-                        }
+                        words={[
+                            {
+                                text: "Share",
+                            },
+                            {
+                                text: "your",
+                            },
+                            {
+                                text: "help",
+                                className: "text-blue-500 dark:text-blue-500",
+                            },
+                        ]}
                     />
                     <p className="max-w-[500px] mt-4">
                         Whether you&apos;re seeking advice, assistance with
