@@ -10,8 +10,25 @@ import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { HeartHandshake, MenuIcon, ShirtIcon } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { useEffect, useState } from "react";
 
 export const Header = () => {
+    const [isMounted, setIsMounted] = useState<boolean>(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    if (!isMounted) return null;
+
+    let accessToken;
+    let isSupplier = false;
+
+    if (typeof window !== "undefined") {
+        accessToken = localStorage?.getItem("access_token");
+        isSupplier = JSON.parse(localStorage?.getItem("isSupplier") ?? "false");
+    }
+
     return (
         <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
             <Sheet>
@@ -73,12 +90,29 @@ export const Header = () => {
                 </NavigationMenuList>
             </NavigationMenu>
             <div className="ml-auto flex gap-2">
-                <Button variant="outline" asChild>
-                    <Link href="/login">Sign in</Link>
-                </Button>
-                <Button asChild>
-                    <Link href="/register">Sign Up</Link>
-                </Button>
+                {!accessToken && (
+                    <>
+                        <Button variant="outline" asChild>
+                            <Link href="/login">Sign in</Link>
+                        </Button>
+                        <Button asChild>
+                            <Link href="/register">Sign Up</Link>
+                        </Button>
+                    </>
+                )}
+                {!!accessToken && !isSupplier && (
+                    <Button asChild>
+                        <Link href="/anouncements/create">
+                            Create anouncement
+                        </Link>
+                    </Button>
+                )}
+                {!!accessToken && (
+                    <Button asChild>
+                        <Link href="/logout">Logout</Link>
+                    </Button>
+                )}
+
                 <ThemeToggle />
             </div>
         </header>

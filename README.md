@@ -19,3 +19,7 @@ This project uses the following technologies:
 4. Shadcn: [Please provide more information about Shadcn].
 5. Tailwind CSS: Utility-first CSS framework for rapidly building custom designs.
 6. Framer Motion: Animation library for React.
+
+## Requirements
+
+Node.js version 20+

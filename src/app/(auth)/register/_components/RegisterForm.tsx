@@ -12,6 +12,7 @@ import {
     FormItem,
     FormMessage,
 } from "@/components/ui/form";
+import { Switch } from "@/components/ui/switch";
 
 const formSchema = z
     .object({
@@ -30,6 +31,7 @@ const formSchema = z
             .min(1, { message: "Invalid email address" }),
         password: z.string().min(6, "Password is too short"),
         confirmpassword: z.string().min(6, "Password is too short"),
+        isSupplier: z.boolean(),
     })
     .refine((data) => data.password === data.confirmpassword, {
         message: "Passwords don't match",
@@ -50,6 +52,7 @@ export const RegisterForm: React.FC<RegisterFormPropsType> = ({ onSubmit }) => {
             email: "",
             password: "",
             confirmpassword: "",
+            isSupplier: false,
         },
     });
 
@@ -195,6 +198,28 @@ export const RegisterForm: React.FC<RegisterFormPropsType> = ({ onSubmit }) => {
                                     </LabelInputContainer>
                                 </FormControl>
                                 <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="isSupplier"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormControl>
+                                    <div className="flex items-center space-x-2 mt-2">
+                                        <Switch
+                                            checked={field.value}
+                                            onCheckedChange={field.onChange}
+                                            id="airplane-mode"
+                                            {...field}
+                                        />
+                                        <Label htmlFor="airplane-mode">
+                                            Is ssupplier
+                                        </Label>
+                                    </div>
+                                </FormControl>
+                                <FormMessage className="mb-0" />
                             </FormItem>
                         )}
                     />

@@ -6,6 +6,8 @@ import { Container } from "@/components/shared/Container";
 import { Button } from "@/components/ui/button";
 import { globeConfig, sampleArcs } from "@/utils/config/homeGlobeConfig";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { categoriesService } from "@/services/categories.service";
 
 const World = dynamic(
     () => import("./_components/Globe/Globe").then((m) => m.World),
@@ -15,6 +17,15 @@ const World = dynamic(
 );
 
 export default function Home() {
+    if (typeof window !== "undefined") {
+        if (window.location.hash) {
+            if (window.location.hash.includes("#access_token")) {
+                redirect("/login");
+            }
+            redirect("/");
+        }
+    }
+
     return (
         <Container className="flex gap-4 flex-1 flex-col md:flex-row justify-center md:justify-start">
             <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start">
@@ -52,7 +63,7 @@ export default function Home() {
             </div>
             <div className="w-1/2 flex items-center justify-center overflow-hidden relative">
                 <div className="hidden md:block absolute w-[400px] lg:w-[600px] xl:w-[800px] aspect-square">
-                    <World data={sampleArcs} globeConfig={globeConfig} />;
+                    <World data={sampleArcs} globeConfig={globeConfig} />
                 </div>
             </div>
         </Container>

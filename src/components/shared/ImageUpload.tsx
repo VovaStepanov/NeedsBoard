@@ -60,8 +60,6 @@ export const ImageUpload: React.FC<ImageUploadPropsType> = ({ onChange }) => {
     const [images, setImages] = useState<string[]>([]);
     const [imagesObj, setImagesObj] = useState<string[]>([]);
 
-    console.log(images);
-
     const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
 
