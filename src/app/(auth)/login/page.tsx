@@ -1,10 +1,14 @@
 "use client";
 import {LoginForm} from './_components';
-import { RegisterForm } from "@/app/(auth)/register/_components";
 
 
 const LoginPage = () => {
-    return <div><LoginForm onSubmit={(values) => {}}/></div>;
+    return <div className={"min-h-screen flex items-center justify-center"}>
+        <LoginForm onSubmit={(values) => {}}/></div>;
+
 };
+
+
+
 
 export default LoginPage;
