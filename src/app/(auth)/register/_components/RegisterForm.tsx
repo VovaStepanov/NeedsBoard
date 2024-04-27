@@ -204,15 +204,15 @@ export const RegisterForm: React.FC<RegisterFormPropsType> = ({ onSubmit }) => {
                     <FormField
                         control={form.control}
                         name="isSupplier"
-                        render={({ field }) => (
+                        render={({ field: { value, ...rest } }) => (
                             <FormItem>
                                 <FormControl>
                                     <div className="flex items-center space-x-2 mt-2">
                                         <Switch
-                                            checked={field.value}
-                                            onCheckedChange={field.onChange}
-                                            id="airplane-mode"
-                                            {...field}
+                                            checked={value}
+                                            onCheckedChange={rest.onChange}
+                                            id="is-supplier"
+                                            {...rest}
                                         />
                                         <Label htmlFor="airplane-mode">
                                             Is ssupplier

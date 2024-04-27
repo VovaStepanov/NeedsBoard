@@ -2,12 +2,12 @@
 
 import { authService } from "@/services/auth.service";
 import { useRouter } from "next/navigation";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 const LogoutPage = () => {
     const router = useRouter();
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         authService.logout();
         localStorage.removeItem("access_token");
         localStorage.removeItem("userId");
