@@ -1,5 +1,5 @@
 const RegisterPage = () => {
-    return <div>Register</div>;
+    return <div>Registerqweqwe</div>;
 };
 
 export default RegisterPage;
