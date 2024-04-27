@@ -2,7 +2,8 @@
 import { RegisterForm } from "./_components";
 
 const RegisterPage = () => {
-    return <div><RegisterForm onSubmit={(values) => {}}/></div>;
+    return <div className={"min-h-screen flex items-center justify-center"}>
+        <RegisterForm onSubmit={(values) => {}}/></div>;
 };
 
 export default RegisterPage;
