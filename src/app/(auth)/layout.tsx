@@ -1,4 +1,4 @@
-import { ThemeToggle } from "@/components/shared/ThemeToggle";
+import { ThemeToggle } from "@/components/shared";
 import { HeartHandshake } from "lucide-react";
 import Link from "next/link";
 
