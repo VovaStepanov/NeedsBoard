@@ -1,5 +1,7 @@
+import { Container } from "@/components/shared";
+
 const AnouncementPage = () => {
-    return <div>AnouncementPage</div>;
+    return <Container>adasd</Container>;
 };
 
 export default AnouncementPage;

@@ -1,3 +1,4 @@
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { HeartHandshake } from "lucide-react";
 import Link from "next/link";
 
@@ -8,12 +9,13 @@ interface AuthLayoutPropsType {
 const AuthLayout: React.FC<AuthLayoutPropsType> = ({ children }) => {
     return (
         <>
-            <header className="p-4 fixed top-0">
+            <header className="w-full p-4 fixed top-0 flex justify-between items-center">
                 <Link href="/" className="flex gap-1">
                     <HeartHandshake className="w-6 h-6" />
                     <span className="font-medium">Back</span>
                     <span className="sr-only">Logo</span>
                 </Link>
+                <ThemeToggle />
             </header>
             <main>{children}</main>
         </>
