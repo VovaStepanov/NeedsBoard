@@ -2,7 +2,7 @@
 
 import { Autocomplete, Container, Input } from "@/components/shared";
 import { AnouncementCard } from "./_components/AnouncementCard";
-import { MultiSelect } from "@/components/shared/MultiSelect";
+import { MultiSelect } from "@/components/shared";
 
 const frameworks = [
     {

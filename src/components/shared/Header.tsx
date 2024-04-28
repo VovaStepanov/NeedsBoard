@@ -9,6 +9,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { HeartHandshake, MenuIcon, ShirtIcon } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Header = () => {
     return (
@@ -78,6 +79,7 @@ export const Header = () => {
                 <Button asChild>
                     <Link href="/register">Sign Up</Link>
                 </Button>
+                <ThemeToggle />
             </div>
         </header>
     );
