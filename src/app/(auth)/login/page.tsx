@@ -1,14 +1,13 @@
 "use client";
-import {LoginForm} from './_components';
-
+import { Container } from "@/components/shared";
+import { LoginForm } from "./_components";
 
 const LoginPage = () => {
-    return <div className={"min-h-screen flex items-center justify-center"}>
-        <LoginForm onSubmit={(values) => {}}/></div>;
-
+    return (
+        <Container className={"min-h-screen flex items-center justify-center"}>
+            <LoginForm onSubmit={(values) => {}} />
+        </Container>
+    );
 };
-
-
-
 
 export default LoginPage;

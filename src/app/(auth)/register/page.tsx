@@ -1,9 +1,13 @@
 "use client";
+import { Container } from "@/components/shared";
 import { RegisterForm } from "./_components";
 
 const RegisterPage = () => {
-    return <div className={"min-h-screen flex items-center justify-center"}>
-        <RegisterForm onSubmit={(values) => {}}/></div>;
+    return (
+        <Container className={"min-h-screen flex items-center justify-center"}>
+            <RegisterForm onSubmit={(values) => {}} />
+        </Container>
+    );
 };
 
 export default RegisterPage;

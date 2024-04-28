@@ -13,15 +13,13 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 
-const formSchema = z
-    .object({
-        email: z
-            .string()
-            .email({ message: "Invalid email address" })
-            .min(1, { message: "Invalid email address" }),
-        password: z.string().min(6, "Password is too short"),
-    })
-
+const formSchema = z.object({
+    email: z
+        .string()
+        .email({ message: "Invalid email address" })
+        .min(1, { message: "Invalid email address" }),
+    password: z.string().min(6, "Password is too short"),
+});
 
 interface RegisterFormPropsType {
     onSubmit: (values: z.infer<typeof formSchema>) => void;
@@ -44,7 +42,6 @@ export const LoginForm: React.FC<RegisterFormPropsType> = ({ onSubmit }) => {
                 </h2>
 
                 <form className="mt-4" onSubmit={form.handleSubmit(onSubmit)}>
-
                     <FormField
                         control={form.control}
                         name="email"
@@ -100,7 +97,10 @@ export const LoginForm: React.FC<RegisterFormPropsType> = ({ onSubmit }) => {
                     <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-2 h-[1px] w-full" />
 
                     <div className="flex justify-end">
-                        <Link href="/register" className="text-blue-500 text-sm">
+                        <Link
+                            href="/register"
+                            className="text-blue-500 text-sm"
+                        >
                             Don&apos;t have account?
                         </Link>
                     </div>
@@ -120,9 +120,9 @@ const BottomGradient = () => {
 };
 
 const LabelInputContainer = ({
-                                 children,
-                                 className,
-                             }: {
+    children,
+    className,
+}: {
     children: React.ReactNode;
     className?: string;
 }) => {
