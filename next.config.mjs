@@ -2,7 +2,7 @@
 const nextConfig = {
     images: {
         domains: [
-          "letsenhance.io",
+          "info.renome.ua",
         ],
       },
 };

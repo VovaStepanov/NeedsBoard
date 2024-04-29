@@ -24,11 +24,13 @@ interface AutocompletePropsType {
         label: string;
     }[];
     name?: string;
+    onChange: (value: string) => void;
 }
 
 export const Autocomplete: React.FC<AutocompletePropsType> = ({
     items,
     name,
+    onChange,
 }) => {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState("");
@@ -64,6 +66,7 @@ export const Autocomplete: React.FC<AutocompletePropsType> = ({
                                             : currentValue,
                                     );
                                     setOpen(false);
+                                    onChange(currentValue);
                                 }}
                             >
                                 <Check
